@@ -27,7 +27,7 @@
 <section id="s0"><div class="eyebrow">NAKAMOTO · SEMANA 2 · DÍA 2</div><h2>De CSS propio a Bootstrap</h2>
 <p>Esta guía te acompaña a crear una página nueva de práctica con Bootstrap. El sitio actual de Rueda Libre queda como referencia y permanece intacto. Todo el trabajo del día se hace dentro de pruebas/catalogo-bootstrap.html.</p>
 <h3>Qué debes tener abierto</h3>
-<p>Extrae Rueda_Libre_Base_S2_D1.zip y abre rueda-libre-v1.5 en VS Code. Abre index.html con Live Server. Deja también el navegador y sus herramientas de desarrollo a mano. Necesitarás internet para cargar Bootstrap desde el CDN; las ilustraciones del proyecto son locales.</p>
+<p>Extrae Rueda_Libre_Base_S2_D1.zip y abre rueda-libre-v1.5 en VS Code. Abre index.html como referencia y crea pruebas/catalogo-bootstrap.html. Usa Live Server para ver ambas páginas. Deja también el navegador y sus herramientas de desarrollo a mano. Necesitarás internet para cargar Bootstrap desde el CDN; las ilustraciones del proyecto son locales.</p>
 <h3>Cómo trabajar con esta guía</h3>
 <p>Lee la explicación, realiza el cambio en el archivo indicado y comprueba el resultado antes de seguir. Los bloques con comentarios como «conserva aquí los demás campos» muestran dónde va tu contenido existente; ese comentario no reemplaza el contenido. No borres campos, textos o imágenes para que el ejemplo se parezca más al bloque.</p>
 <table>
@@ -35,8 +35,8 @@
 <tr><td>Preparación y fundamentos</td><td>Referencia en Git, grilla y lectura de clases</td></tr>
 <tr><td>Mini reto 5</td><td>pruebas/catalogo-bootstrap.html con siete modelos</td></tr>
 <tr><td>Mini reto 6</td><td>Beneficios y llamada a la acción con utilidades</td></tr>
-<tr><td>Mini reto 7</td><td>Inicio migrado y conflictos de CSS resueltos</td></tr>
-<tr><td>Mini reto 8</td><td>Tarifas y reservas migradas, pruebas y publicación</td></tr>
+<tr><td>Mini reto 7</td><td>Página nueva con Bootstrap y observaciones de CSS</td></tr>
+<tr><td>Mini reto 8</td><td>Tabla de tarifas y maqueta de reserva en la página nueva</td></tr>
 </table>
 <aside>El sitio original es tu referencia visual. No edites sus páginas ni su CSS: construye y prueba una página independiente en pruebas/catalogo-bootstrap.html. Hoy trabajarás la grilla y utilidades de Bootstrap.</aside>
 <p>El proyecto entregado es una base didáctica creada para esta clase. La bitácora tiene espacios para tus observaciones reales. No incluye tiempos inventados, un historial de commits de los coders ni una publicación ya hecha.</p>
@@ -192,7 +192,7 @@ git show v1.5-base:css/styles.css</pre>
 &lt;/div&gt;</pre>
 <p>h-100 hace que el artículo ocupe el alto de su columna. d-flex flex-column organiza su contenido verticalmente. mt-auto empuja el enlace al final del espacio disponible. align-self-start evita que se estire a todo el ancho. img-fluid limita la imagen al ancho disponible. No estamos usando el componente card ni el componente btn.</p>
 <h3>Ajusta las rutas desde pruebas</h3>
-<p>Desde pruebas/catalogo-bootstrap.html, ../ sube a la carpeta principal. Por eso la imagen se busca en ../img/urbana.svg y reservas en ../paginas/reservas.html. En index.html esas mismas rutas no llevan ../. Aplica el cambio a todas las imágenes y enlaces copiados. En esta página de prueba no necesitas la etiqueta Nuevo, que pertenece a los estilos propios.</p>
+<p>Desde pruebas/catalogo-bootstrap.html, ../ sube a la carpeta principal. Por eso una foto local puede escribirse como ../img/urbana.jpg. La nueva página es independiente: crea sus tarjetas y enlaza a páginas existentes solo cuando quieras ofrecer esa navegación.</p>
 <h3>Detén y registra</h3>
 <p>Cuando estén los siete modelos y el reparto correcto, detén el cronómetro. Comprueba a 360, 576, 992 y 1200 px. Anota el tiempo, las clases de distribución y qué control perdiste frente al auto-fit original. Guarda el mini reto con un commit.</p>
 </section>
@@ -333,33 +333,15 @@ p { color: var(--azul-noche); }
 <section id="s17"><div class="eyebrow">MINI RETO 8 · PASO 03</div><h2>Comprueba la validación nativa</h2>
 <p>En la maqueta de práctica, observa la diferencia entre required, type, pattern, min, max y step. Prueba dejar un campo obligatorio vacío y escribir un correo sin formato válido. El navegador relaciona el control con su label mediante for e id.</p>
 <p>name identifica el dato del control; los radios que comparten name forman un grupo de selección única. Describe qué comportamiento observaste en cada caso.</p></section>
-<section id="s18"><div class="eyebrow">MINI RETO 8 · PASO 04</div><h2>Limpia el CSS con un criterio claro</h2>
-<p>Revisa únicamente pruebas/catalogo-bootstrap.html. Compara sus utilidades con las reglas del sitio original y explica qué distribución produce cada clase. No elimines ni reemplaces CSS del proyecto base.</p>
-<table>
-<tr><th>Retirar cuando ya no se use</th><th>Conservar o ajustar</th></tr>
-<tr><td>.contenedor y main con padding</td><td>container py-5 en los tres main</td></tr>
-<tr><td>section con margin-bottom global</td><td>mb-5 o mb-4 en las secciones que lo necesitan</td></tr>
-<tr><td>.barra y .pie-bloques</td><td>Utilidades flex en encabezado y pie</td></tr>
-<tr><td>Distribución de .marca y .menu</td><td>Colores, tamaño del logo y estados de sus enlaces</td></tr>
-<tr><td>.portada, .servicios, .rutas, .flota</td><td>row y col-* en su HTML</td></tr>
-<tr><td>Flex y gap de .bici; .bici .boton</td><td>Utilidades en tarjetas; apariencia tarjeta y precio</td></tr>
-<tr><td>.layout-tarifas, .layout-reservas, .fila-campos</td><td>row y columnas para cada bloque</td></tr>
-<tr><td>Media queries que solo distribuían esos bloques</td><td>Ajustes tipográficos de tablas si siguen haciendo falta</td></tr>
-</table>
-<h3>Una hoja propia sigue teniendo trabajo</h3>
-<pre>/* Ejemplo de identidad que sí permanece */
-:root { --verde-ruta: #1e7a4f; }
-.precio { color: var(--verde-ruta); font-weight: 600; }
-.tarjeta { border-radius: var(--radio); }
-.menu a.activo { color: var(--naranja-pedal); }
-:focus-visible {
-  outline: 3px solid var(--azul-noche);
-  outline-offset: 4px;
-}</pre>
-<p>Conserva también las variables originales completas, las dos fuentes, los colores de body, los bordes y fondos de tarjetas y tablas, los controles de formulario, sus estados, el salto al contenido y los detalles posicionados. El relleno de una tarjeta forma parte de su apariencia; no es lo mismo que repartir columnas en la página.</p>
-<aside>No pegues este ejemplo encima de toda la hoja: muestra qué tipo de reglas conservar. Mantén la definición completa de tus variables. Revisa después de cada bloque eliminado; una reducción de líneas no demuestra por sí sola que el sitio esté correcto.</aside>
-</section>
-<section id="s19"><div class="eyebrow">VERIFICACIÓN</div><h2>Prueba antes de dar por terminada la migración</h2>
+<section id="s18"><div class="eyebrow">MINI RETO 8 · PASO 04</div><h2>Lee la distribución y compara los estilos</h2>
+<p>No borres ni cambies reglas de css/styles.css. Esa hoja pertenece al sitio de referencia y te permite comparar dos soluciones visuales: el CSS propio original y las utilidades de Bootstrap dentro de pruebas/catalogo-bootstrap.html.</p>
+<table><tr><th>En la página nueva</th><th>Observa</th></tr>
+<tr><td>container y py-5</td><td>Ancho máximo y espacio vertical interior</td></tr>
+<tr><td>row y col-*</td><td>Distribución de columnas por breakpoint</td></tr>
+<tr><td>g-*, gap-* y mb-*</td><td>Separación entre columnas, elementos y secciones</td></tr>
+<tr><td>d-flex, flex-column y mt-auto</td><td>Alineación del contenido y posición de las acciones</td></tr></table>
+<p>En DevTools inspecciona una tarjeta y compara sus clases con las reglas CSS calculadas. Anota qué cambio visual produce cada clase y cómo se adapta al ancho de pantalla.</p></section>
+<section id="s19"><div class="eyebrow">VERIFICACIÓN</div><h2>Comprueba la página nueva de práctica</h2>
 <p>Abre pruebas/catalogo-bootstrap.html en modo dispositivo de DevTools. Cambia el ancho de forma gradual y observa cómo se distribuyen la portada, las tarjetas, la tabla y el formulario en cada breakpoint.</p>
 <table>
 <tr><th>Prueba</th><th>Qué debe ocurrir</th></tr>
@@ -408,7 +390,7 @@ Conclusión para este proyecto:</pre>
 <pre>git status
 git diff
 git add .
-git commit -m &quot;Migra tarifas y reservas a Bootstrap&quot;
+git commit -m &quot;Create Bootstrap practice page&quot;
 git push origin main</pre>
 <p>git status lista cambios y git diff muestra diferencias. add prepara lo que vas a guardar. commit crea la versión local; push la envía al remoto que ya debes tener conectado. Si no existe origin, crea un repositorio vacío en tu cuenta y agrega su URL real con git remote add origin URL. No escribas literalmente URL.</p>
 <h3>Publica desde tu propio repositorio</h3>
@@ -470,6 +452,7 @@ git push origin main</pre>
 <p>Formulario HTML en MDN: <a href="https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/form">https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/form</a></p>
 </section>
 </main></html>
+
 
 
 

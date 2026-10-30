@@ -454,7 +454,7 @@ p { color: var(--azul-noche); }
 <p>El documento es un identificador, no una cantidad para hacer operaciones: text permite usar un patrón y conservar ceros iniciales. inputmode=&quot;numeric&quot; sugiere un teclado, pero no valida. En el patrón [0-9] significa un dígito; {6,10} exige entre seis y diez. type=&quot;tel&quot; tampoco valida por sí solo un número colombiano: lo hace el patrón.</p>
 <h3>for, id y name cumplen funciones distintas</h3>
 <p>for conecta la etiqueta con el control que tiene ese id. Al hacer clic en el label, ese control recibe foco o cambia su selección. name identifica el dato enviado. Los radios del tipo de bicicleta comparten name para permitir una sola elección. Cada uno conserva un id distinto.</p>
-<aside>El proyecto mantiene method=&quot;post&quot; del caso. Un servidor estático no procesa reservas: después de pasar la validación, el envío puede terminar en 405 o 501. No es una reserva confirmada ni una falla del patrón. No cambies a GET para ocultar esa limitación. Usa datos ficticios.</aside>
+<aside>Al enviar, el navegador evalúa primero las restricciones HTML del formulario. Observa cómo required, type, pattern, min y max muestran la validación nativa. method=&quot;post&quot; especifica el método HTTP y mantiene los datos fuera de la URL.</aside>
 </section>
 <section id="s18"><div class="eyebrow">MINI RETO 8 · PASO 04</div><h2>Limpia el CSS con un criterio claro</h2>
 <p>Busca cada clase de distribución en los tres HTML antes de borrar su regla. Si una página aún la usa, migra ese bloque primero. El objetivo no es reducir líneas a cualquier costo: es evitar dos sistemas compitiendo por el mismo trabajo.</p>
@@ -543,7 +543,7 @@ git push origin main</pre>
 <tr><td>Producto</td><td>Tres páginas migradas con contenido completo</td></tr>
 <tr><td>Laboratorio</td><td>pruebas/catalogo-bootstrap.html con flota y beneficios</td></tr>
 <tr><td>Código</td><td>Distribución con Bootstrap; marca en styles.css</td></tr>
-<tr><td>Formulario</td><td>Reglas originales intactas y límite del POST entendido</td></tr>
+<tr><td>Formulario</td><td>Reglas nativas comprobadas y método POST reconocido</td></tr>
 <tr><td>Bitácora</td><td>Tiempo real, conteos, conflictos, utilidades y conclusión</td></tr>
 <tr><td>Publicación</td><td>URL comprobada desde otro navegador o celular</td></tr>
 </table>
@@ -560,7 +560,7 @@ git push origin main</pre>
 <tr><td>El botón de reservar queda a media altura</td><td>h-100 en article; d-flex flex-column en article; mt-auto en enlace</td></tr>
 <tr><td>El formulario permite documento con letras</td><td>pattern en el input correcto; type text; required; no haber añadido novalidate</td></tr>
 <tr><td>El formulario rechaza una fecha actual</td><td>Rango fijo del ejercicio: noviembre y diciembre de 2026</td></tr>
-<tr><td>Aparece 501 al enviar datos válidos</td><td>POST no soportado por servidor estático; no hay backend</td></tr>
+<tr><td>El navegador bloquea el envío</td><td>Revisa required, type, pattern, min y max; el mensaje nativo identifica el control que necesita atención</td></tr>
 <tr><td>Un texto no toma el color de marca</td><td>Selector ganador, herencia y utilidad text-* importante</td></tr>
 <tr><td>El menú no se pliega en móvil</td><td>Es el comportamiento de hoy: flex-wrap; navbar plegable es del día 3</td></tr>
 </table>
@@ -593,3 +593,4 @@ git push origin main</pre>
 <p>Formulario HTML en MDN: <a href="https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/form">https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/form</a></p>
 </section>
 </main></html>
+

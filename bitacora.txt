@@ -80,7 +80,7 @@ Anota las líneas antes y después, el tiempo que mediste, las ventajas y desven
 
 ## Día 2 — Validación del formulario
 
-Prueba cada caso y anota el mensaje o comportamiento real del navegador. Usa datos ficticios. Un servidor estático no procesa la reserva: los datos válidos pueden superar la validación y luego recibir un error HTTP al enviar.
+Prueba cada caso y anota el mensaje o comportamiento real del navegador. Fíjate en qué atributo HTML produce la respuesta: required, type, pattern, min, max o step.
 
 | Campo | Dato de prueba | Resultado esperado | Qué ocurrió |
 | --- | --- | --- | --- |
@@ -93,7 +93,7 @@ Prueba cada caso y anota el mensaje o comportamiento real del navegador. Usa dat
 | Cantidad | 7 | Bloquea | |
 | Cantidad | 1.5 | Bloquea | |
 | Políticas | Sin marcar | Bloquea | |
-| Todos válidos | Datos ficticios | Supera validación; sin backend no reserva | |
+| Todos válidos | Valores que cumplen las reglas | Supera la validación del navegador | |
 
 ## Día 2 — Red, teclado y accesibilidad
 
@@ -103,3 +103,4 @@ Describe las pruebas que hiciste, el resultado y cómo resolviste cada problema.
 - Recorrido con teclado y comportamiento del foco:
 - Contraste comprobado y método usado:
 - Problema encontrado, corrección aplicada y resultado de la repetición:
+

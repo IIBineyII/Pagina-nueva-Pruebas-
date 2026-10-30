@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Formulario educativo de reserva con validación nativa.">
+  <title>Reserva tu bicicleta | Rueda Libre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido</a>
+  <header class="encabezado">
+    <div class="contenedor barra">
+      <a class="marca" href="../index.html"><img src="../img/logo.svg" alt="" width="80" height="80"> Rueda Libre</a>
+      <nav aria-label="Navegación principal"><ul class="menu" id="menu"><li><a href="../index.html">Inicio</a></li>
+<li><a href="../paginas/tarifas.html">Tarifas y rutas</a></li>
+<li><a href="../paginas/reservas.html" class="activo" aria-current="page">Reservas</a></li></ul></nav>
+    </div>
+  </header>
+  <main id="contenido" class="contenedor">
+<h1>Reserva tu bicicleta</h1><p class="aviso">Formulario educativo. Prueba con datos ficticios. No hay un servicio que procese reservas: un envío válido por POST puede mostrar un error del servidor estático; eso no confirma una reserva.</p>
+<div class="layout-reservas"><section id="formulario"><h2>Formulario de reserva</h2><form action="#formulario" method="post">
+  <fieldset><legend>Tus datos</legend>
+    <div class="campo"><label for="nombre">Nombre completo</label><input id="nombre" name="nombre" type="text" autocomplete="name" minlength="3" required></div>
+    <div class="fila-campos">
+      <div class="campo"><label for="documento">Documento</label><input id="documento" name="documento" type="text" inputmode="numeric" pattern="[0-9]{6,10}" title="Entre 6 y 10 dígitos, sin puntos ni espacios" required></div>
+      <div class="campo"><label for="celular">Celular</label><input id="celular" name="celular" type="tel" autocomplete="tel" pattern="3[0-9]{9}" title="10 dígitos, empezando por 3" required></div>
+    </div>
+    <div class="campo"><label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" autocomplete="email" required></div>
+  </fieldset>
+  <fieldset><legend>Tu alquiler</legend>
+    <div class="campo"><label for="fecha">Fecha del alquiler</label><input id="fecha" name="fecha" type="date" min="2026-11-01" max="2026-12-31" required></div>
+    <fieldset><legend>Tipo de bicicleta</legend>
+      <label class="opcion" for="urbana"><input id="urbana" name="tipo" type="radio" value="urbana" required> Urbana</label>
+      <label class="opcion" for="montana"><input id="montana" name="tipo" type="radio" value="montana" required> Montaña</label>
+      <label class="opcion" for="electrica"><input id="electrica" name="tipo" type="radio" value="electrica" required> Eléctrica</label>
+    </fieldset>
+    <div class="fila-campos">
+      <div class="campo"><label for="plan">Plan</label><select id="plan" name="plan" required><option value="">Selecciona un plan</option><option value="hora">1 hora</option><option value="medio">Medio día</option><option value="dia">Día completo</option></select></div>
+      <div class="campo"><label for="cantidad">Cantidad de bicicletas</label><input id="cantidad" name="cantidad" type="number" min="1" max="6" step="1" required></div>
+    </div>
+    <div class="campo"><label for="recorrido">Recorrido guiado</label><select id="recorrido" name="recorrido"><option value="ninguno">Ninguno</option><option value="rio">Río y Parques</option><option value="barrio">Sabores de Barrio</option><option value="palmas">Reto Las Palmas</option></select></div>
+  </fieldset>
+  <fieldset><legend>Confirmación</legend>
+    <div class="campo"><label for="comentarios">Comentarios opcionales</label><textarea id="comentarios" name="comentarios" rows="4" maxlength="300"></textarea></div>
+    <p id="politicas">La solicitud depende de disponibilidad. Espera la confirmación del equipo. No se realizan pagos en esta demostración.</p>
+    <label class="opcion" for="acepta"><input id="acepta" name="acepta" type="checkbox" value="si" aria-describedby="politicas" required> Acepto las políticas de alquiler</label>
+  </fieldset>
+  <button class="boton" type="submit">Probar validación de la reserva</button>
+</form></section>
+<aside class="tarjeta"><h2>Contacto y horario</h2><a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a><dl><dt>Lunes a viernes</dt><dd>7 a. m. a 7 p. m.</dd><dt>Sábados, domingos y festivos</dt><dd>6 a. m. a 2 p. m.</dd></dl><p>El correo y el número de WhatsApp son datos de ejemplo. No envíes información personal.</p></aside></div>
+  </main>
+  <footer class="pie">
+    <div class="contenedor pie-bloques">
+      <div><h2>Rueda Libre</h2><p>Medellín sobre dos ruedas.<br>Proyecto educativo · 2026</p></div>
+      <div><h2>Contacto</h2><a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a><p>Medellín, Colombia</p></div>
+      <div><h2>Horario</h2><p>Lunes a viernes: 7 a. m. a 7 p. m.<br>Fines de semana y festivos: 6 a. m. a 2 p. m.</p></div>
+    </div>
+  </footer>
+  <a class="boton whatsapp" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</body>
+</html>

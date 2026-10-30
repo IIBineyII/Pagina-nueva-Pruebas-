@@ -1,0 +1,114 @@
+/* 01 IDENTIDAD - conservar durante la migración */
+:root {
+  --verde-ruta: #1e7a4f;
+  --naranja-pedal: #f39a2b;
+  --azul-noche: #14213d;
+  --crema: #faf6ef;
+  --gris-asfalto: #5b6470;
+  --blanco: #ffffff;
+  --borde: #c8cdd1;
+  --fuente-texto: "Open Sans", system-ui, sans-serif;
+  --fuente-titulos: "Montserrat", system-ui, sans-serif;
+  --espacio-1: .5rem;
+  --espacio-2: 1rem;
+  --espacio-3: 1.5rem;
+  --espacio-4: 3rem;
+  --radio: 1rem;
+}
+
+/* 02 BASE Y ACCESIBILIDAD */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  color: var(--azul-noche);
+  background: var(--crema);
+  font-family: var(--fuente-texto);
+  line-height: 1.65;
+}
+h1, h2, h3, legend { font-family: var(--fuente-titulos); line-height: 1.25; }
+h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h2 { font-size: 1.7rem; }
+h3 { font-size: 1.15rem; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--verde-ruta); text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: .18em; }
+:focus-visible { outline: 3px solid var(--azul-noche); outline-offset: 4px; }
+.salto { position: absolute; top: -6rem; left: 1rem; background: var(--blanco); padding: 1rem; z-index: 10; }
+.salto:focus { top: 1rem; }
+.texto-secundario { color: var(--gris-asfalto); }
+
+/* 03 DISTRIBUCIÓN BASE - sustituir por container y utilidades el día 2 */
+.contenedor { width: min(100% - 2rem, 75rem); margin-inline: auto; }
+main { padding-block: var(--espacio-4); }
+section { margin-bottom: var(--espacio-4); }
+.encabezado { padding-block: var(--espacio-2); background: var(--azul-noche); color: var(--blanco); }
+.barra { display: flex; flex-direction: column; align-items: center; gap: var(--espacio-2); }
+.marca { display: flex; align-items: center; gap: var(--espacio-1); color: var(--blanco); font-weight: 600; text-decoration: none; }
+.marca img { width: 2.8rem; }
+.menu { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--espacio-3); list-style: none; margin: 0; padding: 0; }
+.menu a { color: var(--blanco); text-decoration: none; padding-block: .4rem; }
+.menu a:hover, .menu a:focus { text-decoration: underline; }
+.menu a.activo { color: var(--naranja-pedal); font-weight: 600; }
+.encabezado :focus-visible { outline-color: var(--naranja-pedal); }
+
+/* 04 DISTRIBUCIÓN DE INICIO - eliminar al migrar inicio */
+.portada { display: grid; grid-template-columns: 1fr; align-items: center; gap: var(--espacio-4); min-height: 55vh; }
+.portada img { border-radius: var(--radio); }
+.servicios, .rutas { display: grid; grid-template-columns: 1fr; gap: var(--espacio-3); }
+.flota { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.625rem), 1fr)); gap: var(--espacio-3); }
+.bici { display: flex; flex-direction: column; gap: var(--espacio-1); }
+.bici h3, .bici p { margin: 0; }
+.bici .boton { margin-top: auto; align-self: flex-start; }
+
+/* 05 APARIENCIA DE TARJETAS Y ENLACES */
+.tarjeta { position: relative; background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); padding: var(--espacio-3); }
+.tarjeta img { width: 100%; border-radius: .6rem; margin-bottom: var(--espacio-2); }
+.precio { color: var(--verde-ruta); font-weight: 600; }
+.boton { display: inline-block; padding: .7rem 1rem; border: 0; border-radius: .6rem; background: var(--verde-ruta); color: var(--blanco); font: inherit; text-decoration: none; cursor: pointer; }
+.boton:hover { background: var(--azul-noche); color: var(--blanco); }
+.nuevo { position: absolute; right: 1rem; top: 1rem; background: var(--naranja-pedal); color: var(--azul-noche); padding: .2rem .7rem; border-radius: 1rem; font-weight: 600; }
+.aviso { padding: var(--espacio-3); border-left: 4px solid var(--verde-ruta); background: var(--blanco); }
+
+/* 06 TARIFAS - conservar apariencia; migrar distribución */
+.layout-tarifas { display: grid; grid-template-columns: 1fr; gap: var(--espacio-3); }
+.tablas { min-width: 0; }
+table { width: 100%; border-collapse: collapse; margin-bottom: var(--espacio-3); font-size: .8rem; }
+caption { font-weight: 600; text-align: left; padding-block: 1rem; color: var(--azul-noche); }
+th, td { padding: .45rem .3rem; border: 1px solid var(--borde); text-align: left; overflow-wrap: anywhere; }
+thead { background: var(--azul-noche); color: var(--blanco); }
+tbody { background: var(--blanco); }
+
+/* 07 RESERVAS - conservar controles; migrar distribución */
+.layout-reservas, .fila-campos { display: grid; grid-template-columns: 1fr; gap: var(--espacio-3); }
+.layout-reservas > * { min-width: 0; }
+fieldset { min-width: 0; margin: 0 0 var(--espacio-3); padding: var(--espacio-3); border: 1px solid var(--borde); border-radius: var(--radio); }
+legend { padding-inline: .4rem; font-weight: 700; }
+.campo { margin-bottom: var(--espacio-2); }
+label { display: block; font-weight: 600; margin-bottom: .3rem; }
+input:not([type="radio"]):not([type="checkbox"]), select, textarea { width: 100%; padding: .7rem; border: 1px solid var(--gris-asfalto); border-radius: .4rem; color: var(--azul-noche); background: var(--blanco); font: inherit; }
+.opcion { display: flex; align-items: baseline; gap: .6rem; font-weight: 400; }
+textarea { resize: vertical; }
+dd { margin: 0 0 1rem; }
+dt { font-weight: 600; }
+
+/* 08 PIE Y ACCESO FIJO */
+.pie { background: var(--blanco); border-top: 1px solid var(--borde); padding-block: 2rem 7rem; }
+.pie-bloques { display: flex; flex-direction: column; align-items: flex-start; gap: var(--espacio-3); }
+.pie h2 { font-size: 1rem; }
+.whatsapp { position: fixed; bottom: 1rem; right: 1rem; z-index: 5; box-shadow: 0 .3rem 1rem #0002; }
+
+/* 09 MEJORAS DESDE TABLET */
+@media (min-width: 768px) {
+  .barra { flex-direction: row; justify-content: space-between; }
+  .pie-bloques { flex-direction: row; justify-content: space-between; }
+  .portada { grid-template-columns: 1fr 1fr; }
+  .servicios, .rutas { grid-template-columns: repeat(3, 1fr); }
+  .fila-campos { grid-template-columns: 1fr 1fr; }
+  table { font-size: .9rem; }
+  th, td { padding: .8rem .5rem; }
+}
+/* 10 MEJORAS DESDE ESCRITORIO */
+@media (min-width: 1200px) {
+  .layout-reservas { grid-template-columns: 2fr 1fr; }
+  .layout-tarifas { grid-template-columns: 2fr 1fr; }
+}

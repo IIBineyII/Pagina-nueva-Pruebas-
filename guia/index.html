@@ -6,26 +6,26 @@
 <a href="#s4">05 Lee la grilla de doce partes</a>
 <a href="#s5">06 Comprende los breakpoints</a>
 <a href="#s6">07 Crea la página de prueba</a>
-<a href="#s7">08 Reconstruye la flota sin CSS propio</a>
+<a href="#s7">08 Crea una flota nueva con Bootstrap</a>
 <a href="#s8">09 Aprende a leer las utilidades</a>
 <a href="#s9">10 Construye los cuatro beneficios</a>
 <a href="#s10">11 Organiza la llamada a la acción</a>
 <a href="#s11">12 Lleva Bootstrap a inicio</a>
-<a href="#s12">13 Migra las secciones de inicio</a>
-<a href="#s13">14 Migra el encabezado y el pie</a>
+<a href="#s12">13 Amplía la página de práctica</a>
+<a href="#s13">14 Diseña encabezado y pie</a>
 <a href="#s14">15 Resuelve conflictos con DevTools</a>
 <a href="#s15">16 Organiza tarifas con la grilla</a>
 <a href="#s16">17 Organiza reservas sin perder campos</a>
 <a href="#s17">18 Entiende la validación que conservas</a>
 <a href="#s18">19 Limpia el CSS con un criterio claro</a>
-<a href="#s19">20 Prueba antes de dar por terminada la migración</a>
+<a href="#s19">20 Comprueba la página nueva</a>
 <a href="#s20">21 Documenta la comparación con honestidad</a>
 <a href="#s21">22 Guarda y publica la versión beta</a>
 <a href="#s22">23 Si algo falla encuentra la causa</a>
 <a href="#s23">24 Guion para enseñar y volver a consultar</a>
 </nav></header><main>
 <section id="s0"><div class="eyebrow">NAKAMOTO · SEMANA 2 · DÍA 2</div><h2>De CSS propio a Bootstrap</h2>
-<p>Esta guía te acompaña para transformar Rueda Libre v1.5 en v2.0-beta. Partimos de un sitio que ya funciona con HTML, CSS, Flexbox y Grid. Hoy vamos a cambiar cómo se distribuye el contenido, conservar sus datos y comprobar que el formulario sigue validando igual.</p>
+<p>Esta guía te acompaña a crear una página nueva de práctica con Bootstrap. El sitio actual de Rueda Libre queda como referencia y permanece intacto. Todo el trabajo del día se hace dentro de pruebas/catalogo-bootstrap.html.</p>
 <h3>Qué debes tener abierto</h3>
 <p>Extrae Rueda_Libre_Base_S2_D1.zip y abre rueda-libre-v1.5 en VS Code. Abre index.html con Live Server. Deja también el navegador y sus herramientas de desarrollo a mano. Necesitarás internet para cargar Bootstrap desde el CDN; las ilustraciones del proyecto son locales.</p>
 <h3>Cómo trabajar con esta guía</h3>
@@ -38,7 +38,7 @@
 <tr><td>Mini reto 7</td><td>Inicio migrado y conflictos de CSS resueltos</td></tr>
 <tr><td>Mini reto 8</td><td>Tarifas y reservas migradas, pruebas y publicación</td></tr>
 </table>
-<aside>El alcance de hoy es la grilla y las utilidades. La navbar plegable, los componentes card, los modales y la validación visual de Bootstrap pertenecen al día 3. Tu menú actual puede seguir visible y adaptable.</aside>
+<aside>El sitio original es tu referencia visual. No edites sus páginas ni su CSS: construye y prueba una página independiente en pruebas/catalogo-bootstrap.html. Hoy trabajarás la grilla y utilidades de Bootstrap.</aside>
 <p>El proyecto entregado es una base didáctica creada para esta clase. La bitácora tiene espacios para tus observaciones reales. No incluye tiempos inventados, un historial de commits de los coders ni una publicación ya hecha.</p>
 </section>
 <section id="s1"><div class="eyebrow">PREPARACIÓN 01</div><h2>Reconoce el proyecto antes de editar</h2>
@@ -64,7 +64,7 @@
 <aside>Las imágenes SVG del ejemplo son ilustraciones para practicar rutas y diseño. Si las cambias por fotografías, revisa el nombre del archivo, las mayúsculas, su extensión y el texto alternativo.</aside>
 </section>
 <section id="s2"><div class="eyebrow">PREPARACIÓN 02</div><h2>Guarda un punto de partida</h2>
-<p>Antes de migrar, guarda la versión actual. Así podrás consultar qué cambió y recuperar una referencia sin mantener dos sitios completos dentro del mismo proyecto.</p>
+<p>Abre el sitio original como referencia y crea pruebas/catalogo-bootstrap.html para experimentar. Así puedes comparar ambos diseños y conservar intacta la versión que ya te gusta.</p>
 <h3>Si la carpeta todavía no tiene Git</h3>
 <pre>git init
 git add .
@@ -77,7 +77,7 @@ git tag v1.5-base</pre>
 <pre># Consultar después el CSS inicial sin modificar tus archivos
 git show v1.5-base:css/styles.css</pre>
 <p>Para la comparación de la flota, cuenta por separado las declaraciones de distribución: display, grid-template-columns y gap del bloque .flota. No confundas ese conteo con las líneas totales de la hoja ni con el número de clases de HTML.</p>
-<aside>Si recibiste esta base y no construiste su versión original, escribe «tiempo de construcción original no medido». Sí puedes medir cuánto tardas hoy en reconstruir la flota. Bootstrap puede reducir tu CSS propio y aumentar las clases del HTML; registra ambas cosas.</aside>
+<aside>Si recibiste esta base y no construiste su versión original, escribe «tiempo de construcción original no medido». Mide cuánto tardas en crear la flota nueva. Compara las utilidades de Bootstrap con el CSS de referencia; no modifiques la página existente.</aside>
 <h3>Antes de continuar</h3>
 <p>Confirma que git status indica un árbol limpio después del commit. No cambies de rama ni restaures archivos para consultar el pasado: git show permite leerlos sin tocar el trabajo actual.</p>
 </section>
@@ -96,7 +96,7 @@ git show v1.5-base:css/styles.css</pre>
 <tr><td>Componentes</td><td>Patrones como navbar o modal</td><td>Contenido, comportamiento y personalización</td></tr>
 </table>
 <h3>Por qué no borramos todo el CSS</h3>
-<p>Los colores de Rueda Libre, sus fuentes, el aspecto de sus tablas y los estados de foco pertenecen a su identidad. La migración de hoy mueve la distribución hacia Bootstrap. Mantendremos reglas de marca y controles que ya funcionan.</p>
+<p>Los colores de Rueda Libre, sus fuentes, el aspecto de sus tablas y los estados de foco pertenecen a su identidad. La práctica de hoy te permite comparar la distribución de Bootstrap con la página original, que queda intacta como referencia.</p>
 <h3>Qué es un CDN</h3>
 <p>Es un servicio que entrega archivos desde una red de servidores. Al usar una URL de CDN, el navegador descarga la hoja CSS o el bundle de JavaScript. Si no hay conexión, ese recurso puede no estar disponible. Fijamos la versión 5.3.8 para que todos practiquemos con los mismos archivos, tal como aparece en el material de la clase.</p>
 <aside>La grilla y las utilidades funcionan con el CSS de Bootstrap. El bundle se carga porque lo pide el reto y quedará listo para los componentes del día 3; no es lo que activa las columnas.</aside>
@@ -174,8 +174,8 @@ git show v1.5-base:css/styles.css</pre>
 <p>Abre la página con Live Server. Pulsa F12, abre Network y recarga. Filtra por bootstrap: deben aparecer el CSS y el bundle sin errores. Una respuesta servida desde caché o un 304 puede ser normal; un 404 indica que la ruta está mal. El título debe tener margen inferior y el contenido debe quedar separado de los bordes.</p>
 <aside>Si todo parece HTML sin estilos, comprueba primero el enlace CSS y la conexión. No intentes arreglar una descarga fallida agregando reglas propias al laboratorio.</aside>
 </section>
-<section id="s7"><div class="eyebrow">MINI RETO 5 · PASO 02</div><h2>Reconstruye la flota sin CSS propio</h2>
-<p>Inicia el cronómetro. En index.html, copia los siete article que están dentro de .flota. En la página de prueba, envuelve cada article con una columna. Cambia las clases del artículo y del enlace como muestra este modelo; conserva el nombre, la descripción y el precio de cada bicicleta.</p>
+<section id="s7"><div class="eyebrow">MINI RETO 5 · PASO 02</div><h2>Crea una flota nueva con Bootstrap</h2>
+<p>Inicia el cronómetro. En pruebas/catalogo-bootstrap.html, escribe una sección nueva de catálogo con siete tarjetas. Usa la información como referencia y crea el marcado con Bootstrap; no copies ni modifiques la sección que ya existe en index.html.</p>
 <pre>&lt;div class=&quot;col-12 col-sm-6 col-lg-4 col-xl-3&quot;&gt;
   &lt;article class=&quot;h-100 d-flex flex-column gap-2 p-3 border rounded-3&quot;&gt;
     &lt;img src=&quot;../img/urbana.svg&quot; class=&quot;img-fluid rounded&quot;
@@ -279,87 +279,31 @@ git show v1.5-base:css/styles.css</pre>
 <h3>Comprueba y registra</h3>
 <p>A 767 px la imagen debe estar oculta; a 768 px debe aparecer y la franja pasar a fila. Usa Tab para llegar al enlace. En la bitácora explica cinco clases que consultaste y probaste, y guarda el mini reto en Git.</p>
 </section>
-<section id="s11"><div class="eyebrow">MINI RETO 7 · PASO 01</div><h2>Lleva Bootstrap a inicio</h2>
-<p>Ahora integra el framework en index.html. Primero agrega el enlace CSS de Bootstrap antes de css/styles.css; conserva los enlaces a Google Fonts. Agrega el mismo bundle antes de cerrar body. En la página de pruebas sigue sin enlazarse la hoja propia.</p>
-<pre>&lt;!-- Dentro de head, después de las fuentes --&gt;
-&lt;link rel=&quot;stylesheet&quot;
-  href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css&quot;&gt;
-&lt;link rel=&quot;stylesheet&quot; href=&quot;css/styles.css&quot;&gt;
-
-&lt;!-- Sustituye las clases del main; conserva su id --&gt;
-&lt;main id=&quot;contenido&quot; class=&quot;container py-5&quot;&gt;
-  &lt;!-- Conserva las secciones existentes. --&gt;
+<section id="s11"><div class="eyebrow">MINI RETO 7 · PASO 01</div><h2>Prepara Bootstrap en la página nueva</h2>
+<p>Incluye Bootstrap solo en pruebas/catalogo-bootstrap.html. No cambies index.html ni css/styles.css. La hoja del framework se coloca en head y el bundle antes de cerrar body.</p>
+<pre>&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css&quot;&gt;</pre>
+<p>Haz tus cambios dentro de main en container py-5. El archivo de práctica tiene sus propios estilos y su propio encabezado; el sitio de referencia conserva su diseño.</p></section>
+<section id="s12"><div class="eyebrow">MINI RETO 7 · PASO 02</div><h2>Diseña portada y catálogo desde cero</h2>
+<p>Crea dentro de pruebas/catalogo-bootstrap.html una portada con row g-4 align-items-center. Distribuye texto e imagen en col-12 col-md-6. Debajo, construye una flota de tarjetas nueva con row g-4 y columnas responsivas.</p>
+<pre>&lt;main class=&quot;container py-5&quot;&gt;
+  &lt;section class=&quot;row g-4 align-items-center mb-5&quot;&gt;
+    &lt;div class=&quot;col-12 col-md-6&quot;&gt;&lt;h1&gt;Rueda Libre&lt;/h1&gt;&lt;p&gt;Explora la ciudad en bicicleta.&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;col-12 col-md-6&quot;&gt;&lt;img class=&quot;img-fluid rounded-3&quot; src=&quot;../img/rio.jpg&quot; alt=&quot;Ciclista en una vía urbana&quot;&gt;&lt;/div&gt;
+  &lt;/section&gt;
+  &lt;section class=&quot;row g-4&quot; aria-label=&quot;Bicicletas&quot;&gt;
+    &lt;div class=&quot;col-12 col-sm-6 col-lg-4 col-xl-3&quot;&gt;&lt;article class=&quot;card h-100&quot;&gt;...&lt;/article&gt;&lt;/div&gt;
+  &lt;/section&gt;
 &lt;/main&gt;</pre>
-<h3>Migra la portada sin perder su contenido</h3>
-<pre>&lt;section class=&quot;mb-5&quot; aria-labelledby=&quot;titulo&quot;&gt;
-  &lt;div class=&quot;row g-4 align-items-center&quot;&gt;
-    &lt;div class=&quot;col-12 col-md-6&quot;&gt;
-      &lt;p class=&quot;texto-secundario&quot;&gt;ALQUILER Y RECORRIDOS EN MEDELLÍN&lt;/p&gt;
-      &lt;h1 id=&quot;titulo&quot;&gt;Rueda Libre&lt;/h1&gt;
-      &lt;!-- Conserva el párrafo completo y sus enlaces. --&gt;
-      &lt;a class=&quot;boton&quot; href=&quot;paginas/reservas.html&quot;&gt;Reservar ahora&lt;/a&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col-12 col-md-6&quot;&gt;
-      &lt;img src=&quot;img/rio.svg&quot; class=&quot;img-fluid rounded-3&quot;
-        alt=&quot;Ilustración de una ruta entre montañas de Medellín&quot;
-        width=&quot;800&quot; height=&quot;500&quot;&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
+<p>Las columnas apilan el contenido en móvil y se reparten el espacio desde md. Completa las tarjetas con contenido propio y usa utilidades como h-100, d-flex y mt-auto para alinear sus acciones.</p></section>
+<section id="s13"><div class="eyebrow">MINI RETO 7 · PASO 03</div><h2>Añade beneficios y una llamada a la acción</h2>
+<p>Completa la página de práctica con una sección de beneficios y otra con un enlace destacado. Puedes organizar tres beneficios con row g-4 y col-12 col-md-4. Mantén todo dentro de pruebas/catalogo-bootstrap.html.</p>
+<pre>&lt;section class=&quot;row g-4 my-5&quot; aria-label=&quot;Beneficios&quot;&gt;
+  &lt;article class=&quot;col-12 col-md-4&quot;&gt;&lt;h2&gt;Explora a tu ritmo&lt;/h2&gt;&lt;p&gt;Elige una ruta para tu paseo.&lt;/p&gt;&lt;/article&gt;
+&lt;/section&gt;
+&lt;section class=&quot;text-center bg-success text-white rounded-3 p-4&quot;&gt;
+  &lt;h2&gt;¿Listo para salir?&lt;/h2&gt;&lt;a class=&quot;btn btn-light&quot; href=&quot;#catalogo&quot;&gt;Ver bicicletas&lt;/a&gt;
 &lt;/section&gt;</pre>
-<p>Las dos col-md-6 producen mitades desde 768 px. En móvil siguen ocupando todo el ancho. align-items-center alinea verticalmente las columnas de esa fila. Mantén un único h1; el resto de títulos de sección sigue en h2.</p>
-<aside>Cargar la hoja propia después ayuda a resolver reglas con igual prioridad y especificidad. El orden por sí solo no derrota un selector más específico ni una declaración importante. Resolveremos los conflictos mirando las reglas concretas.</aside>
-</section>
-<section id="s12"><div class="eyebrow">MINI RETO 7 · PASO 02</div><h2>Migra las secciones de inicio</h2>
-<p>En la flota de index.html, cambia div.flota por div.row.g-4 y envuelve cada bicicleta en col-12 col-sm-6 col-lg-4 col-xl-3. Conserva tarjeta y bici para su apariencia. Agrega al artículo h-100 d-flex flex-column gap-2 y al enlace mt-auto align-self-start. Aquí el título de cada bicicleta sigue en h3 porque está dentro de Nuestra flota, que tiene h2.</p>
-<pre>&lt;div class=&quot;row g-4&quot;&gt;
-  &lt;div class=&quot;col-12 col-sm-6 col-lg-4 col-xl-3&quot;&gt;
-    &lt;article class=&quot;tarjeta bici h-100 d-flex flex-column gap-2&quot;&gt;
-      &lt;!-- Conserva imagen, h3, descripción y precio. --&gt;
-      &lt;a class=&quot;boton mt-auto align-self-start&quot;
-        href=&quot;paginas/reservas.html&quot;&gt;Reservar Urbana Clásica&lt;/a&gt;
-    &lt;/article&gt;
-  &lt;/div&gt;
-  &lt;!-- Repite la envoltura para los otros seis artículos existentes. --&gt;
-&lt;/div&gt;</pre>
-<table>
-<tr><th>Bloque existente</th><th>Envoltura que debes usar</th></tr>
-<tr><td>div.servicios</td><td>Cámbialo por row g-4; cada article va en col-12 col-md-4</td></tr>
-<tr><td>div.rutas</td><td>Cámbialo por row g-4; cada article va en col-12 col-md-4</td></tr>
-<tr><td>Cada tarjeta de servicios y rutas</td><td>Añade h-100 si quieres igualar altos dentro de la fila</td></tr>
-<tr><td>Secciones principales</td><td>Añade mb-5 para conservar separación vertical</td></tr>
-</table>
-<p>Copia a inicio los beneficios y la franja de la página de prueba. Corrige sus rutas: ../img/logo.svg pasa a img/logo.svg y ../paginas/reservas.html pasa a paginas/reservas.html. Si copias solo las secciones, no copies otro main, otro h1 ni el segundo head.</p>
-<h3>Qué debes retirar del CSS en este punto</h3>
-<p>Retira las reglas de .portada, .servicios, .rutas y .flota, incluidas sus variantes dentro de las media queries. De .bici retira display, flex-direction y gap. Retira la regla .bici .boton que se sustituyó por mt-auto y align-self-start. Conserva .bici h3 y .bici p si quieres mantener los márgenes de su contenido.</p>
-<aside>No elimines aún .layout-tarifas, .layout-reservas ni .fila-campos: las otras páginas todavía dependen de ellas. Comenta esos bloques como pendientes del mini reto 8.</aside>
-</section>
-<section id="s13"><div class="eyebrow">MINI RETO 7 · PASO 03</div><h2>Migra el encabezado y el pie</h2>
-<p>El encabezado compartido también puede organizarse con utilidades. Todavía no construiremos una navbar plegable: el menú seguirá cambiando de línea cuando necesite espacio.</p>
-<pre>&lt;header class=&quot;encabezado py-3&quot;&gt;
-  &lt;div class=&quot;container d-flex flex-column flex-md-row
-    justify-content-md-between align-items-center gap-3&quot;&gt;
-    &lt;a class=&quot;marca d-flex align-items-center gap-2&quot; href=&quot;index.html&quot;&gt;
-      &lt;img src=&quot;img/logo.svg&quot; alt=&quot;&quot; width=&quot;80&quot; height=&quot;80&quot;&gt;
-      Rueda Libre
-    &lt;/a&gt;
-    &lt;nav aria-label=&quot;Navegación principal&quot;&gt;
-      &lt;ul id=&quot;menu&quot; class=&quot;menu d-flex flex-wrap
-        justify-content-center gap-4 list-unstyled m-0 p-0&quot;&gt;
-        &lt;!-- Conserva los tres li y sus enlaces. --&gt;
-      &lt;/ul&gt;
-    &lt;/nav&gt;
-  &lt;/div&gt;
-&lt;/header&gt;</pre>
-<p>Sustituye el contenedor interior del pie por el siguiente. Conserva dentro sus tres bloques: marca, contacto y horario. El div no necesita seguir llamándose pie-bloques porque la distribución estará expresada en utilidades.</p>
-<pre>&lt;div class=&quot;container d-flex flex-column flex-md-row
-  justify-content-between align-items-start gap-4&quot;&gt;
-  &lt;!-- Aquí siguen los tres bloques existentes del pie. --&gt;
-&lt;/div&gt;</pre>
-<p>Retira .barra y .pie-bloques del CSS y sus variantes responsive. De .menu quita display, flex-wrap, justify-content, gap, list-style, margin y padding; conserva las reglas que dan apariencia a sus enlaces. De .marca quita display, align-items y gap; conserva color, tipografía y decoración. La clase encabezado puede conservar fondo y color.</p>
-<h3>Qué replicar en las otras páginas</h3>
-<p>Cuando migres tarifas y reservas, lleva este mismo marcado a sus encabezados y pies. Ajusta href y src para usar ../ desde paginas/. Conserva aria-current=&quot;page&quot; y activo únicamente en el enlace de la página que se está visitando.</p>
-<aside>Conserva los id usados por los enlaces y el salto a #contenido. Una migración visual no debe romper los destinos de navegación.</aside>
-</section>
+<p>Prueba py-*, gap-*, text-center y las utilidades de color. Observa qué propiedades cambian en el navegador y anota las clases que te resultaron nuevas.</p></section>
 <section id="s14"><div class="eyebrow">MINI RETO 7 · PASO 04</div><h2>Resuelve conflictos con DevTools</h2>
 <p>Si algo no se ve como esperabas, selecciona ese elemento con Inspeccionar. En Styles busca la propiedad en conflicto. Una declaración tachada perdió frente a otra regla; no siempre significa que sea inútil o incorrecta. En Computed revisa el valor que finalmente se aplica y desde dónde viene.</p>
 <table>
@@ -380,84 +324,17 @@ p { color: var(--azul-noche); }
 <p>Un párrafo puede heredar color de body si no recibe otro color. En cambio, background y padding no se heredan de esa forma. Una regla que asigna color directamente al párrafo se aplica antes que el color que habría heredado. Por eso hay que inspeccionar el elemento correcto.</p>
 <aside>Registra tres conflictos que realmente observes: selector, propiedad, valor ganador y cambio realizado. Los ejemplos de esta página son hipótesis para diagnosticar, no resultados que debas copiar como si hubieran ocurrido.</aside>
 </section>
-<section id="s15"><div class="eyebrow">MINI RETO 8 · PASO 01</div><h2>Organiza tarifas con la grilla</h2>
-<p>Agrega Bootstrap a paginas/tarifas.html. Tu hoja propia se carga después con href=&quot;../css/styles.css&quot;. Sustituye el main por class=&quot;container py-5&quot; y migra encabezado y pie con las utilidades ya explicadas.</p>
-<pre>&lt;div class=&quot;row g-4&quot;&gt;
-  &lt;div class=&quot;col-12 col-lg-8&quot;&gt;
-    &lt;section class=&quot;mb-4&quot;&gt;
-      &lt;h2&gt;Alquiler de bicicletas&lt;/h2&gt;
-      &lt;!-- Conserva la tabla completa y la nota de casco y candado. --&gt;
-    &lt;/section&gt;
-    &lt;section id=&quot;recorridos&quot; class=&quot;mb-4&quot;&gt;
-      &lt;h2&gt;Recorridos guiados&lt;/h2&gt;
-      &lt;!-- Conserva tabla, horario de salidas y enlace a reservas. --&gt;
-    &lt;/section&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12 col-lg-4&quot;&gt;
-    &lt;aside class=&quot;tarjeta&quot;&gt;
-      &lt;h2&gt;Antes de salir&lt;/h2&gt;
-      &lt;!-- Conserva la lista y el aviso de confirmación. --&gt;
-    &lt;/aside&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-<p>Sustituye div.layout-tarifas por row g-4. El bloque que contiene las dos tablas ocupa ocho de doce partes desde lg; la información complementaria ocupa cuatro. En móvil ambos usan el ancho completo. Ocho más cuatro completa las doce partes de una fila.</p>
-<h3>Conserva el significado de las tablas</h3>
-<p>No conviertas los datos en una colección de div para facilitar el diseño. Conserva table, caption, thead, tbody y los th con scope. La grilla distribuye bloques de la página; la tabla representa relaciones entre filas y columnas. Mantén las reglas propias de bordes, rellenos y encabezados de tabla.</p>
-<p>Si una tabla con más datos no cabe, puedes envolverla en un div con overflow-auto para limitar el desplazamiento a ese bloque. Primero revisa el ancho, los textos y el relleno. En esta base las tablas deben poder leerse en móvil sin que todo el documento se desplace lateralmente.</p>
-<aside>Cuando la página esté migrada, retira .layout-tarifas y su regla dentro del breakpoint de 1200 px. Conserva el id recorridos para que sigan funcionando los enlaces desde inicio.</aside>
-</section>
-<section id="s16"><div class="eyebrow">MINI RETO 8 · PASO 02</div><h2>Organiza reservas sin perder campos</h2>
-<p>Agrega a paginas/reservas.html los mismos recursos Bootstrap, con ../css/styles.css después. Cambia el contenedor principal a container py-5. El reto pide proporción 8/4 desde md: en esta migración las dos columnas aparecen desde 768 px, aunque la base las mostraba desde 1200 px.</p>
-<pre>&lt;div class=&quot;row g-4&quot;&gt;
-  &lt;div class=&quot;col-12 col-md-8&quot;&gt;
-    &lt;section id=&quot;formulario&quot;&gt;
-      &lt;h2&gt;Formulario de reserva&lt;/h2&gt;
-      &lt;!-- Conserva aquí TODO el form original. --&gt;
-    &lt;/section&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;col-12 col-md-4&quot;&gt;
-    &lt;aside class=&quot;tarjeta&quot;&gt;
-      &lt;!-- Conserva contacto, horarios y aviso educativo. --&gt;
-    &lt;/aside&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-<h3>Migra las dos filas de campos cortos</h3>
-<p>En el formulario hay dos div.fila-campos: uno agrupa documento y celular; el otro, plan y cantidad. En cada caso usa row g-3 y añade col-12 col-sm-6 a sus dos div.campo. Los label y los controles quedan dentro de su columna. No pongas la clase row directamente en fieldset.</p>
-<pre>&lt;div class=&quot;row g-3&quot;&gt;
-  &lt;div class=&quot;campo col-12 col-sm-6&quot;&gt;
-    &lt;label for=&quot;documento&quot;&gt;Documento&lt;/label&gt;
-    &lt;input id=&quot;documento&quot; name=&quot;documento&quot; type=&quot;text&quot;
-      inputmode=&quot;numeric&quot; pattern=&quot;[0-9]{6,10}&quot;
-      title=&quot;Entre 6 y 10 dígitos, sin puntos ni espacios&quot; required&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;campo col-12 col-sm-6&quot;&gt;
-    &lt;!-- Conserva label y control completos de celular. --&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</pre>
-<aside>Retira .layout-reservas y .fila-campos del CSS, incluidas sus variantes responsive. Conserva fieldset, legend, label, input, select, textarea y sus estilos: hoy estás cambiando distribución, no las reglas del formulario.</aside>
-</section>
-<section id="s17"><div class="eyebrow">MINI RETO 8 · PASO 03</div><h2>Entiende la validación que conservas</h2>
-<p>La validación nativa la realiza el navegador antes de enviar el formulario. Bootstrap no comprueba la disponibilidad de bicicletas. Cambiar columnas o colores no debe modificar required, pattern, min, max o los nombres de los controles.</p>
-<table>
-<tr><th>Campo</th><th>Regla del caso</th><th>Cómo se expresa</th></tr>
-<tr><td>Nombre</td><td>Obligatorio, mínimo 3 caracteres</td><td>required y minlength=&quot;3&quot;</td></tr>
-<tr><td>Documento</td><td>6 a 10 dígitos</td><td>type=&quot;text&quot; y pattern=&quot;[0-9]{6,10}&quot;</td></tr>
-<tr><td>Correo</td><td>Formato de correo y obligatorio</td><td>type=&quot;email&quot; y required</td></tr>
-<tr><td>Celular</td><td>10 dígitos, empieza por 3</td><td>type=&quot;tel&quot; y pattern=&quot;3[0-9]{9}&quot;</td></tr>
-<tr><td>Fecha</td><td>1 nov a 31 dic de 2026</td><td>type=&quot;date&quot;, min y max</td></tr>
-<tr><td>Tipo de bicicleta</td><td>Una opción obligatoria</td><td>radio con el mismo name y required</td></tr>
-<tr><td>Plan</td><td>Obligatorio</td><td>select required y primera opción vacía</td></tr>
-<tr><td>Cantidad</td><td>Entero entre 1 y 6</td><td>number, min=&quot;1&quot;, max=&quot;6&quot;, step=&quot;1&quot;</td></tr>
-<tr><td>Comentarios</td><td>Opcional, hasta 300 caracteres</td><td>textarea maxlength=&quot;300&quot;</td></tr>
-<tr><td>Políticas</td><td>Aceptación obligatoria</td><td>checkbox required</td></tr>
-</table>
-<p>El documento es un identificador, no una cantidad para hacer operaciones: text permite usar un patrón y conservar ceros iniciales. inputmode=&quot;numeric&quot; sugiere un teclado, pero no valida. En el patrón [0-9] significa un dígito; {6,10} exige entre seis y diez. type=&quot;tel&quot; tampoco valida por sí solo un número colombiano: lo hace el patrón.</p>
-<h3>for, id y name cumplen funciones distintas</h3>
-<p>for conecta la etiqueta con el control que tiene ese id. Al hacer clic en el label, ese control recibe foco o cambia su selección. name identifica el dato enviado. Los radios del tipo de bicicleta comparten name para permitir una sola elección. Cada uno conserva un id distinto.</p>
-<aside>Al enviar, el navegador evalúa primero las restricciones HTML del formulario. Observa cómo required, type, pattern, min y max muestran la validación nativa. method=&quot;post&quot; especifica el método HTTP y mantiene los datos fuera de la URL.</aside>
-</section>
+<section id="s15"><div class="eyebrow">MINI RETO 8 · PASO 01</div><h2>Agrega una tabla de tarifas nueva</h2>
+<p>Dentro de pruebas/catalogo-bootstrap.html, crea una sección de tarifas con una tabla semántica. Practica la distribución con row, col-12 y col-lg-8; deja una columna lateral de información en col-12 col-lg-4. La página existente paginas/tarifas.html permanece intacta.</p>
+<p>Conserva table, caption, thead, tbody y th con scope: las tablas representan datos relacionados, mientras la grilla Bootstrap distribuye bloques de página.</p></section>
+<section id="s16"><div class="eyebrow">MINI RETO 8 · PASO 02</div><h2>Diseña una maqueta de reserva nueva</h2>
+<p>Añade a la página de práctica una sección visual de reserva. Usa row g-4 con una columna principal y una lateral. Es una oportunidad para observar cómo col-12 col-md-8 y col-12 col-md-4 responden al ancho.</p>
+<p>Puedes incluir controles de ejemplo como input type=&quot;email&quot; required y input type=&quot;number&quot; min=&quot;1&quot; max=&quot;6&quot;. El navegador usa esos atributos para validar y dar mensajes junto al control.</p></section>
+<section id="s17"><div class="eyebrow">MINI RETO 8 · PASO 03</div><h2>Comprueba la validación nativa</h2>
+<p>En la maqueta de práctica, observa la diferencia entre required, type, pattern, min, max y step. Prueba dejar un campo obligatorio vacío y escribir un correo sin formato válido. El navegador relaciona el control con su label mediante for e id.</p>
+<p>name identifica el dato del control; los radios que comparten name forman un grupo de selección única. Describe qué comportamiento observaste en cada caso.</p></section>
 <section id="s18"><div class="eyebrow">MINI RETO 8 · PASO 04</div><h2>Limpia el CSS con un criterio claro</h2>
-<p>Busca cada clase de distribución en los tres HTML antes de borrar su regla. Si una página aún la usa, migra ese bloque primero. El objetivo no es reducir líneas a cualquier costo: es evitar dos sistemas compitiendo por el mismo trabajo.</p>
+<p>Revisa únicamente pruebas/catalogo-bootstrap.html. Compara sus utilidades con las reglas del sitio original y explica qué distribución produce cada clase. No elimines ni reemplaces CSS del proyecto base.</p>
 <table>
 <tr><th>Retirar cuando ya no se use</th><th>Conservar o ajustar</th></tr>
 <tr><td>.contenedor y main con padding</td><td>container py-5 en los tres main</td></tr>
@@ -483,17 +360,17 @@ p { color: var(--azul-noche); }
 <aside>No pegues este ejemplo encima de toda la hoja: muestra qué tipo de reglas conservar. Mantén la definición completa de tus variables. Revisa después de cada bloque eliminado; una reducción de líneas no demuestra por sí sola que el sitio esté correcto.</aside>
 </section>
 <section id="s19"><div class="eyebrow">VERIFICACIÓN</div><h2>Prueba antes de dar por terminada la migración</h2>
-<p>Abre las tres páginas en modo dispositivo de DevTools. Usa ancho responsive y escribe valores concretos, sin limitarte a los modelos de teléfono del menú. Revisa también los límites de cada breakpoint.</p>
+<p>Abre pruebas/catalogo-bootstrap.html en modo dispositivo de DevTools. Cambia el ancho de forma gradual y observa cómo se distribuyen la portada, las tarjetas, la tabla y el formulario en cada breakpoint.</p>
 <table>
 <tr><th>Prueba</th><th>Qué debe ocurrir</th></tr>
-<tr><td>Inicio a 360 px</td><td>Flota en una columna; menú legible; sin desborde</td></tr>
+<tr><td>Página nueva a 360 px</td><td>Flota en una columna; menú legible; sin desborde</td></tr>
 <tr><td>Flota a 575 y 576 px</td><td>Pasa de una a dos columnas</td></tr>
 <tr><td>Franja a 767 y 768 px</td><td>Cambia de columna a fila; aparece la imagen decorativa</td></tr>
 <tr><td>Flota a 991 y 992 px</td><td>Pasa de dos a tres columnas</td></tr>
 <tr><td>Flota a 1199 y 1200 px</td><td>Pasa de tres a cuatro columnas</td></tr>
-<tr><td>Tarifas a 360, 768 y 1280 px</td><td>Tablas legibles; complemento debajo hasta lg</td></tr>
-<tr><td>Reservas a 360, 768 y 1280 px</td><td>Una columna al inicio; formulario/contacto en 8/4 desde md</td></tr>
-<tr><td>Las tres con Tab y Shift + Tab</td><td>Foco visible, orden lógico y todos los enlaces accesibles</td></tr>
+<tr><td>Tabla de tarifas a 360, 768 y 1280 px</td><td>Tablas legibles; complemento debajo hasta lg</td></tr>
+<tr><td>Maqueta de reserva a 360, 768 y 1280 px</td><td>Una columna al inicio; formulario/contacto en 8/4 desde md</td></tr>
+<tr><td>Página nueva con Tab y Shift + Tab</td><td>Foco visible, orden lógico y todos los enlaces accesibles</td></tr>
 </table>
 <h3>Prueba los límites del formulario</h3>
 <p>Con el resto de datos válidos, cambia un campo por vez: nombre de dos letras; documento con letras; correo sin @; celular que no empiece por 3; fecha 2026-10-31; cantidad 0, 7 y 1.5; políticas sin marcar. Debe bloquear cada envío incorrecto. Luego prueba la fecha inicial y final y cantidades 1 y 6. Deben superar su validación si el resto es correcto.</p>
@@ -512,7 +389,7 @@ Criterio de conteo: todas las líneas, incluidos blancos y comentarios
 Flota con CSS propio: declaraciones de distribución:
 Flota Bootstrap: clases de distribución utilizadas:
 Tiempo original: no medido si recibí la base
-Tiempo medido hoy en la reconstrucción de la flota:
+Tiempo medido hoy creando la flota nueva:
 
 Ventaja observada con un ejemplo:
 Desventaja observada con un ejemplo:
@@ -537,10 +414,10 @@ git push origin main</pre>
 <h3>Publica desde tu propio repositorio</h3>
 <p>En GitHub abre Settings, luego Pages. Elige Deploy from a branch, rama main y carpeta / (root). Guarda la configuración. Cuando la publicación termine, abre la URL que muestra GitHub. No cambies las rutas relativas por rutas de tu disco ni por rutas que empiecen en /: en un sitio de proyecto podrían apuntar fuera de su carpeta.</p>
 <h3>Revisión en línea</h3>
-<p>Desde la URL publicada recorre inicio, tarifas, reservas y la página de pruebas. Comprueba imágenes, fuentes y CSS. Si algo funciona localmente pero falla en línea, revisa mayúsculas y minúsculas: img/Rio.svg no es el mismo nombre que img/rio.svg en todos los servidores. Registra la URL real en la bitácora.</p>
+<p>Desde la URL publicada recorre la página nueva de práctica y sus secciones. Comprueba imágenes, fuentes y CSS. Si algo funciona localmente pero falla en línea, revisa mayúsculas y minúsculas: img/Rio.svg no es el mismo nombre que img/rio.svg en todos los servidores. Registra la URL real en la bitácora.</p>
 <table>
 <tr><th>Antes de entregar</th><th>Comprueba</th></tr>
-<tr><td>Producto</td><td>Tres páginas migradas con contenido completo</td></tr>
+<tr><td>Producto</td><td>Una página nueva de práctica con contenido completo; el sitio original intacto</td></tr>
 <tr><td>Laboratorio</td><td>pruebas/catalogo-bootstrap.html con flota y beneficios</td></tr>
 <tr><td>Código</td><td>Distribución con Bootstrap; marca en styles.css</td></tr>
 <tr><td>Formulario</td><td>Reglas nativas comprobadas y método POST reconocido</td></tr>
@@ -575,8 +452,8 @@ git push origin main</pre>
 <tr><td>0 a 20 min</td><td>Abrir la base y pedir que predigan columnas</td><td>Verificar archivos, navegación y referencia Git</td></tr>
 <tr><td>20 a 50 min</td><td>Explicar doce partes con anchos concretos</td><td>Crear laboratorio y probar fronteras de breakpoints</td></tr>
 <tr><td>50 a 80 min</td><td>Leer una utilidad desde su nombre</td><td>Construir beneficios y franja</td></tr>
-<tr><td>80 a 125 min</td><td>Migrar portada y una tarjeta en vivo</td><td>Migrar resto de inicio y registrar conflictos</td></tr>
-<tr><td>125 a 165 min</td><td>Revisar que el formulario conserve sus reglas</td><td>Migrar tarifas y reservas</td></tr>
+<tr><td>80 a 125 min</td><td>Crear una portada y una tarjeta nuevas</td><td>Completar la página nueva y registrar conflictos</td></tr>
+<tr><td>125 a 165 min</td><td>Revisar que el formulario conserve sus reglas</td><td>Añadir tabla de tarifas y maqueta de reserva nuevas</td></tr>
 <tr><td>165 a 195 min</td><td>Pedir evidencia de cada resultado</td><td>Probar, medir, concluir y publicar</td></tr>
 </table>
 <h3>Preguntas que ayudan a comprobar comprensión</h3>
@@ -593,4 +470,7 @@ git push origin main</pre>
 <p>Formulario HTML en MDN: <a href="https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/form">https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/form</a></p>
 </section>
 </main></html>
+
+
+
 

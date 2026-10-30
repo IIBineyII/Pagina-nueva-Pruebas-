@@ -36,12 +36,12 @@ Al recorrer el código, identifica las decisiones de distribución que encontras
 
 ## Día 2 — Cambios y decisiones
 
-### Mini reto 5 — Reconstrucción
+### Mini reto 5 — Página nueva con Bootstrap
 
-Escribe qué parte reconstruiste, cuánto tardaste y qué clases utilizaste. Compara el CSS resultante con la referencia: ¿qué cambió y por qué? Si no construiste personalmente v1.5, anota el tiempo original como «no medido» y no lo compares con el tiempo de hoy.
+Anota qué página nueva construiste, cuánto tardaste y qué clases de Bootstrap utilizaste. Compara su distribución con el sitio original, que se conserva intacto como referencia.
 
 - Qué resolví y cómo:
-- Tiempo de reconstrucción:
+- Tiempo de construcción de la página nueva:
 - Clases utilizadas:
 - Diferencias de CSS y conclusión:
 
@@ -103,4 +103,5 @@ Describe las pruebas que hiciste, el resultado y cómo resolviste cada problema.
 - Recorrido con teclado y comportamiento del foco:
 - Contraste comprobado y método usado:
 - Problema encontrado, corrección aplicada y resultado de la repetición:
+
 

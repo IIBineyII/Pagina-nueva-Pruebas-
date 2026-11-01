@@ -81,3 +81,25 @@ Anota tres observaciones de Styles o Computed. Si hubo un problema, describe su 
 - Qué probaría en mi próxima página:
 
 La comparación se basa en las decisiones de diseño y el comportamiento observado. El CSS del sitio original se conserva como referencia.
+------------------------------------------------------------------------------------------------------------
+
+Recurrí a la IA para aclarar dudas sobre la semántica del código de las medidas (col)
+
+Ejercicio de columnas punto 7:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+360: Queda una sola columna
+576: Quedan dos columnas
+992: Quedan tres columnas
+1200: Quedan cuatro columnas
+
+Comprueba y registra 10:
+
+d-none: Oculta directamente el contenido donde se asigne, hice la prueba con algunas imágenes del catalogo.
+
+d-md-block: Muestra la imagen a partir de los px que se asignen en el prefijo, lo junté con el d-none en las imágenes e hice las pruebas reduciendo y aumentando la resolución.
+
+d-md-flex: Es el equivalente a flexbox, lo probé con un par de secciones y el cambó que hizo fue bajar los títulos al inicio el siguiente contenido queda al frente de este.
+
+flex column: Agrupa todo el contenido en una sola columna vertical, hice la prueba con el catálogo y directamente mueve todos los artículos a una sola.
+
+Justify content between: reparte el espacio sobrante, lo usé en main y el espacio entre cada columna fue mayor del que había.

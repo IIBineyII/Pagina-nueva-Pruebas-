@@ -1,0 +1,120 @@
+# Diario guía — Rueda Libre
+
+En cada entrada cuenta qué resolviste, cómo lo hiciste y qué observaste. Añade ejemplos concretos de clases o atributos. Registra los tiempos que hayas medido.
+
+## Mi punto de partida
+
+- Fecha: 31/10/2026
+- Commit o versión consultada: Test 1
+- Archivo nuevo: pruebas/catalogo-bootstrap.html
+- URL local de la práctica: http://127.0.0.1:5500/pruebas/catalogo-bootstrap.html?plan=urbano&cantidad=2#contenido (ya avanzado)
+- URL del repositorio: https://github.com/IIBineyII/Pagina-nueva-Pruebas-
+- URL publicada de la práctica:
+
+
+## Mini reto 5 — Página nueva y propuestas de salida
+
+- Qué construí hoy: Construí una página nueva para presentar siete propuestas relacionadas con las experiencias y el alquiler de bicicletas. Organicé cada propuesta con su propia información e imagen.
+
+- Cómo organicé las siete propuestas: Utilicé una estructura en la que cada propuesta tiene su propio contenedor div con un elemento article en su interior. De esta manera, cada bicicleta o experiencia tiene su propio espacio y contenido, pero todas pertenecen a una misma fila.
+
+- Clases que decidieron el número de columnas: Utilicé las clases col-12, col-sm-6, col-lg-4 y col-xl-3. Comprendí que cada una establece una distribución diferente dependiendo del ancho de la pantalla. También aprendí que Bootstrap utiliza un sistema de 12 columnas para calcular las proporciones.
+
+- Tiempo medido, si lo registré: No registré el tiempo de realización (perdón).
+
+- Qué diferencia observé frente al CSS Grid del sitio de referencia: Comprendí que CSS Grid permite organizar los elementos mediante propiedades CSS, mientras que Bootstrap permite conseguir una distribución adaptable utilizando clases directamente desde HTML. Ambos permiten organizar los elementos en filas y columnas, pero utilizan mecanismos diferentes.
+
+
+
+## Mini reto 6 — Espaciado, beneficios y llamada a la acción
+
+Clases que probé con su propiedad o comportamiento y cambio que vi: g-4 controla el espaciado horizontal y vertical entre columnas y observé una mayor separación entre los elementos. d-none oculta un elemento y el elemento deja de mostrarse. d-md-block muestra un elemento como bloque desde el breakpoint md y el elemento aparece a partir de 768 px. flex-column organiza los elementos verticalmente y Los elementos quedan uno debajo del otro. flex-md-row organiza los elementos horizontalmente desde md y los elementos pasan a organizarse en una fila desde 768 px.
+
+- Cómo coloqué los cuatro beneficios: Organicé los cuatro beneficios dentro de una estructura común para mantener una distribución ordenada y facilitar su adaptación a diferentes tamaños de pantalla.
+
+- Qué cambió en la franja a 768 px: A partir de los 768 px, la imagen dejó de estar oculta y apareció. Además, la franja cambió su distribución vertical a horizontal.
+
+- Qué entendí sobre padding, margin y gap: Comprendí que padding controla el espacio interno de un elemento, margin controla el espacio externo (similar a CSS), y gap establece la separación entre los elementos de un contenedor. También aprendí que Bootstrap permite modificar estos espacios mediante clases.
+
+Recurrí a la IA para aclarar dudas sobre la semántica del código de las medidas (col)
+
+Comprueba y registra 7:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+360: Queda una sola columna
+576: Quedan dos columnas
+992: Quedan tres columnas
+1200: Quedan cuatro columnas
+
+## Mini reto 8 — Comparación y consulta de opciones
+
+- Cómo distribuí la comparación en ocho y cuatro partes: Utilicé el sistema de columnas de Bootstrap para dividir el espacio en dos secciones, una que ocupa ocho partes y otra que ocupa cuatro. Comprendí que Bootstrap trabaja con una cuadrícula de doce columnas, por lo que esta distribución equivale a dos tercios y un tercio del espacio disponible.
+
+- Cómo asocié cada label con su control: Comprendí que cada etiqueta label debe estar relacionada con su respectivo campo de entrada mediante el atributo for, cuyo valor debe coincidir con el id del control. Esto permite identificar qué información debe introducirse en cada campo.
+
+- Qué efecto tuvieron required, min, max y step: Aprendí que required establece un campo como obligatorio, min define el valor mínimo permitido, max establece el máximo y step determina los intervalos en los que se pueden introducir valores.
+
+- Qué observé en la URL después de una consulta válida con GET: Observé que los datos del formulario aparecen en la dirección URL como parámetros de consulta. Comprendí que cada parámetro tiene un nombre (name) y un valor (value), separados mediante el signo =, mientras que & permite separar varios parámetros. También aprendí que # identifica una sección específica de la página. Por ejemplo, en ?plan=urbano&cantidad=2#consulta, los parámetros son plan=urbano y cantidad=2, mientras que #consulta identifica el destino dentro de la página.
+
+Comprueba y registra 10:
+
+d-none: Oculta directamente el contenido donde se asigne, hice la prueba con algunas imágenes del catalogo.
+
+d-md-block: Muestra la imagen a partir de los px que se asignen en el prefijo, lo junté con el d-none en las imágenes e hice las pruebas reduciendo y aumentando la resolución.
+
+d-md-flex: Es el equivalente a flexbox, lo probé con un par de secciones y el cambó que hizo fue bajar los títulos al inicio el siguiente contenido queda al frente de este.
+
+flex column: Agrupa todo el contenido en una sola columna vertical, hice la prueba con el catálogo y directamente mueve todos los artículos a una sola.
+
+Justify content between: reparte el espacio sobrante, lo usé en main y el espacio entre cada columna fue mayor del que había.
+
+Comprueba y registra 11:
+
+Al cambiar uno de los artículos del catalogo con (gap-2, p-3) a (gap-4, p-4), los cambios de las medidas dentro del articulo fueron:
+227x544 y 16 de padding a 211x528 y 24 de padding
+
+Comprueba y registra 14:
+Conflictos:
+
+-El div de cada uno de los artículos tienen el conflicto de que dependiendo de la resolución a la que esté se encuentran tachadas las otras medidas de col que no se estén cumpliendo.
+
+- Encontré un conflicto en el margin del body salía tachado un 8px, no logré encontrar donde salía la linea de código, le pregunté a la IA y al parecer esta regla aparece bajo user agent stylesheet, es decir, son los estilos predeterminados que aplica Chrome cuando no hay una regla propia que los sustituya. Así que las reglas predeterminadas de Bootstrap se pusieron por encima.
+
+- En la sección de la portada encontré tachado en row un par de bs gutter, según investigué son el equivalente a g-4 para el espaciado. Al parecer Bootstrap genera propiedades automáticamente al hacer uso algunas clases.
+
+Comprueba y registra 18:
+
+Capturas:
+360: La página se estrecha simulando el tamaño de un móvil, el nombre de la página y el nav se agrupan en una sola columna, al igual que el resulto de información de la página y la sección de listo para rodar desaparece su imagen debido a la resolución.
+
+768: Simula el tamaño de una Tablet; el nombre y el nav se reparte cada uno en un extremo, el resto de información de divide en dos columnas y el icono de la sección de listo para rodar aparece ya que así fue ajustada.
+
+1280: Simula la pantalla de un computador. La página dispone de mayor espacio horizontal y permite visualizar más elementos en una misma fila.
+
+Enlaces:
+#catalago: Nos lleva al catalogo de bicicletas con las descripciones de cada una.
+
+#consulta: Nos lleva a la sección de consultas para escoger la bicicleta y la cantidad.
+
+#beneficios: Nos lleva a la sección de beneficios "¿Por qué Rueda Libre?".
+
+#contenido: Nos lleva al elemento principal de contenido.
+
+Comprueba y registra 19:
+
+Fecha y archivo de trabajo: 02/11/2026
+
+Qué quería conseguir: Aprender de otra manera a organizar y dar diseño a secciones de mi página.
+
+Qué construí hoy: Construí una página de reservas de bicicletas con secciones básicas y cada una con un diseño y buena distribución adaptable a cualquier dispositivo o resolución.
+
+Problema u observación: Tuve problemas comprendiendo la semántica de algunas medidas ya que estaba acostumbrado a usar medidas rem o px, pero solo necesitaba analizar detenidamente como se componen en Bootstrap. 
+
+Clase o atributo que lo explica: col-12 ocupa todo el ancho disponible, col-sm-6 ocupa la mitad desde el breakpoint sm, col-lg-4 ocupa un tercio desde el breakpoint lg, col-xl-3 ocupa una cuarta parte desde el breakpoint xl.
+
+Cómo lo comprobé: Realizando cambios a las medidas col-12 o al resto dependiendo de la resolución mínima que necesitan para aplicarse.
+
+Qué aprendí y qué probaría después: Aprendí a modificar medidas y estilos usando "class" directamente desde un archivo HTML. Probaría después más funciones o repetir algunas que no se repitieron mucho para interiorizarlas mejor.
+
+La comparación se basa en las decisiones de diseño y el comportamiento observado. El CSS del sitio original se conserva como referencia.
+
+
